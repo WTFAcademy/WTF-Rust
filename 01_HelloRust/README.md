@@ -1,4 +1,3 @@
-# Rust介绍
 ---
 title: 1. Hello Rust
 tags:

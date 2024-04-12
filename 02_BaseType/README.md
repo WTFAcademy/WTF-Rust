@@ -1,4 +1,3 @@
-# 基础类型
 ---
 title: 3. Base Type
 tags:
@@ -6,6 +5,8 @@ tags:
 - basic
 - wtfacademy
 ---
+
+# WTF Solidity极简入门: 基础类型
 
 在这一章节中，我们将通过具有详细说明的实例，探索 Rust 中的基础语法元素。我们会覆盖变量和可变性、数据类型（包括标量和复合类型）。
 

@@ -7,9 +7,13 @@
 > 我们最近在学习 Rust，巩固一下细节，也写一个“WTF Rust 极简入门”，供小白们使用（编程大佬可以另找教程）。
 
 **第 1 讲 Hello Rust**：[Code](01_HelloRust/main.rs) | [教程](01_HelloRust/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
 **第 2 讲 基本类型**：[Code](02_BaseType/main.rs) | [教程](02_BaseType/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
 **第 3 讲 函数**：[Code](03_Function/main.rs) | [教程](03_Function/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
 **第 4 讲 所有权、借用、引用**：[Code](04_ownership/main.rs) | [教程](04_ownership/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
 **第 5 讲 Rust 测试**：[Code](05_Rust_Tests/adder/src/lib.rs) | [教程](05_Rust_Tests/rust_tests.md) | 本文作者: [Eta](https://twitter.com/pwhattie)
 
 
