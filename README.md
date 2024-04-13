@@ -6,7 +6,21 @@
 
 > 我们最近在学习 Rust，巩固一下细节，也写一个“WTF Rust 极简入门”，供小白们使用（编程大佬可以另找教程）。
 
-**第 1 讲 Rust 测试**：[Code](./01_Rust_Tests/adder/src/lib.rs) | [教程](./01_Rust_Tests/rust_tests.md) | 本文作者: [Eta](https://twitter.com/pwhattie)
+**第 1 讲 Hello Rust**：[Code](01_HelloRust/main.rs) | [教程](01_HelloRust/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 2 讲 基本类型**：[Code](02_BaseType/src/main.rs) | [教程](02_BaseType/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 3 讲 复合类型**：[Code](03_CompoundType/src/main.rs) | [教程](03_CompoundType/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 4 讲 结构体，枚举**：[Code](04_Struct_Enum/src/main.rs) | [教程](04_Struct_Enum/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 5 讲 所有权、借用、引用**：[Code](05_Ownership/src/main.rs) | [教程](05_Ownership/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 6 讲 函数**：[Code](06_Function/src/main.rs) | [教程](06_Function/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 7 讲 Rust 测试**：[Code](07_Rust_Tests/adder/src/lib.rs) | [教程](07_Rust_Tests/rust_tests.md) | 本文作者: [Eta](https://twitter.com/pwhattie)
+
+**第 8 讲 集合类型**：[Code](08_Collections/src/main.rs) | [教程](08_Collections/README.md) | 本文作者: [Eta](https://twitter.com/pwhattie)
 
 ## Reference
 
