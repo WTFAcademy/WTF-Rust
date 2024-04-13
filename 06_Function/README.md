@@ -1,5 +1,5 @@
 ---
-title: 3. Function
+title: 6. Function
 tags:
 - Rust
 - basic
