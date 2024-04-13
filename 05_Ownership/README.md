@@ -1,5 +1,5 @@
 ---
-title: 5. Ownership
+title: 5. Trait
 tags:
 - Rust
 - basic
@@ -7,106 +7,85 @@ tags:
 ---
 
 # WTF Solidity极简入门: 所有权、借用、引用
+本章是 Rust 语言精髓的核心所在：所有权、借用和引用。这些概念是 Rust 安全内存管理的基石，帮助开发者写出安全且高效的代码，避免了传统语言中常见的错误，如空指针访问和数据竞争。
 
-## 泛型
-泛型是允许编写可用于多种数据类型的函数和数据结构的代码。与C或C++中的模板类似，泛型提高了代码的复用性，同时减少了冗余。
+## 1. 所有权规则
 
-### 泛型示例：函数
+在 Rust 中，所有权系统的核心规则可以归纳为三条：
+- 每一个值都被其所有者变量所拥有。
+- 值在任意时刻只能被一个所有者拥有。
+- 当所有者离开作用域时，值将被丢弃。
 
-考虑一个找到切片中最大元素的函数。没有泛型，你可能需要为每种数据类型编写一个不同的函数。使用泛型，你可以写一个函数适用于任意数据类型：
+这些规则确保内存安全无泄漏，同时避免手动管理内存。
 
-```rust
-fn largest<T: PartialOrd>(list: &[T]) -> &T {
-    let mut largest = &list[0];
-
-    for item in list {
-        if item > largest {
-            largest = item;
-        }
-    }
-
-    largest
-}
-
-let numbers = vec![34, 50, 25, 100, 65];
-let result = largest(&numbers);
-println!("The largest number is {}", result);
-
-let chars = vec!['y', 'm', 'a', 'q'];
-let result = largest(&chars);
-println!("The largest char is {}", result);
-```
-
-在这个例子中，`largest`函数通过`<T: PartialOrd>`约束来接收任意实现了`PartialOrd` trait的类型`T`的切片——这意味着`T`是可部分排序的。`PartialOrd`是Rust标准库提供的一个trait，表示类型值是可比较的。
-
-#### 泛型结构体示例
-
-泛型同样可以应用于结构体的定义中，让我们定义一个点`Point`来存储两种可能不同类型的`x`和`y`坐标：
+### 示例：所有权转移
 
 ```rust
-struct Point<T, U> {
-    x: T,
-    y: U,
-}
+fn main() {
+    let s1 = String::from("hello");  // s1 成为所有者
+    let s2 = s1;                     // 所有权从 s1 转移至 s2
 
-let integer_and_float = Point { x: 5, y: 4.0 };
-println!("Point coordinates: ({}, {})", integer_and_float.x, integer_and_float.y);
+    // println!("{s1}");             // 错误：s1 不再持有字符串
+    println!("{s2}");
+}
 ```
 
-这个`Point<T, U>`结构体定义展现了如何使用泛型来存储两种类型的数据。它能够适用于既不严格规定`x`和`y`必须相同类型的场景。
+## 2. 借用
 
-## Trait（特性）
+在 Rust 中，借用是一种让多个部分的代码访问同一数据，但不拥有数据的方式。借用分为两种：不可变借用和可变借用。
 
-Trait可以被认为是定义一组方法的方式，这些方法可以被多种类型实现。这有点像其他语言中的接口。
+- **不可变借用**：允许多次借用，但借用期间不能修改数据。
+- **可变借用**：允许数据被修改，但在同一时间内只能有一个可变借用。
 
-### Trait示例
-
-这里我们定义一个`Summary` trait，它要求实现它的类型必须提供一个返回摘要字符串的方法：
+### 示例：不可变借用
 
 ```rust
-pub trait Summary {
-    fn summarize(&self) -> String;
+fn main() {
+    let s1 = String::from("hello");
+    let len = calculate_length(&s1); // s1 被不可变借用
+
+    println!("The length of '{}' is {}.", s1, len);
 }
 
-struct Article {
-    title: String,
-    content: String,
+fn calculate_length(s: &String) -> usize {  // s 是对 s1 的引用
+    s.len()
 }
-
-impl Summary for Article {
-    fn summarize(&self) -> String {
-        format!("{} - {}", self.title, &self.content[..10])
-    }
-}
-
-let article = Article {
-    title: "Rust Language".to_string(),
-    content: "Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.".to_string(),
-};
-
-println!("New article available! {}", article.summarize());
 ```
 
-## 生命周期
+### 示例：可变借用
 
-生命周期是Rust的一个有点复杂但非常强大的特性，用于确保引用在被使用时始终有效。
+```rust
+fn main() {
+    let mut s = String::from("hello");
 
-### 生命周期示例：函数
+    change(&mut s);  // s 被可变借用
 
-让我们看一个带有生命周期的函数例子，该函数接受两个字符串切片引用并返回其中一个：
+    println!("{}", s);
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
+```
+
+## 3. 生命周期注解
+
+生命周期注解是 Rust 的一种工具，用于指明引用应该持续存在多久。在许多情况下，Rust 能自动推断出生命周期，但有些复杂情况需要手动标注。
+
+### 示例：生命周期注解
 
 ```rust
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
-    if x.len() > y.len() { x } else { y }
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
 }
-
-let string1 = String::from("abcd");
-let string2 = "xyz";
-
-let result = longest(string1.as_str(), string2);
-println!("The longest string is {}", result);
 ```
 
-生命周期注解`'a`指出了所有输入引用和返回引用都必须拥有相同的生命周期——这确保了返回的引用在其使用期间保持有效。
+在上述函数中，生命周期注解 `'a` 指明了参数 `x` 和 `y` 以及返回值存在的最小生命周期。
 
-希望这些更详细的解释和例子有助于你更好地理解泛型、trait（特性）和生命周期。这些概念是Rust高效安全性的基石，理解它们对于成为一个高效的Rust程序员至关重要。
+## 小结
+
+看完你应该对 Rust 的核心概念：所有权、借用和生命周期有了较深的理解。掌握这些概念对于高效利用 Rust 语言特性至关重要，可以帮你编写出更安全和高效的代码。如果有任何疑问或需要进一步的解释，请随时提出！

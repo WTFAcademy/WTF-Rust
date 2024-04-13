@@ -28,10 +28,10 @@ fn main() {
     let numbers = [1, 2, 3, 4, 5];
     // 给数组 numbers 增加数字 6和7
 
-
     let slice = &numbers[0..2]; // 引用数组的一部分
 
     for &item in slice.iter() {
         println!("{}", item);
     }
+    slice.iter().for_each(|&item| println!("{}", item));
 }

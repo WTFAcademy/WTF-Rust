@@ -20,6 +20,7 @@
 
 **第 7 讲 Rust 测试**：[Code](07_Rust_Tests/adder/src/lib.rs) | [教程](07_Rust_Tests/rust_tests.md) | 本文作者: [Eta](https://twitter.com/pwhattie)
 
+**第 8 讲 集合类型**：[Code](08_Collections/src/main.rs) | [教程](08_Collections/README.md) | 本文作者: [Eta](https://twitter.com/pwhattie)
 
 ## Reference
 
