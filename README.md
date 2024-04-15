@@ -20,7 +20,24 @@
 
 **第 7 讲 Rust 测试**：[Code](07_Rust_Tests/adder/src/lib.rs) | [教程](07_Rust_Tests/rust_tests.md) | 本文作者: [Eta](https://twitter.com/pwhattie)
 
-**第 8 讲 集合类型**：[Code](08_Collections/src/main.rs) | [教程](08_Collections/README.md) | 本文作者: [Eta](https://twitter.com/pwhattie)
+**第 8 讲 集合类型**：[Code](08_Collections/src/main.rs) | [教程](08_Collections/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 9 讲 错误处理**：[Code](09_Errors/src/main.rs) | [教程](09_Errors/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 10 讲 Trait**：[Code](10_Trait/src/main.rs) | [教程](10_Trait/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 11 讲 泛型**：[Code](11_Generics/src/main.rs) | [教程](11_Generics/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 12 讲 生命周期**：[Code](12_Lifetime/src/main.rs) | [教程](12_Lifetime/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 13 讲 Cargo**：[Code](13_Cargo/src/main.rs) | [教程](13_Cargo/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 14 讲 Rust 常用库**：[Code](14_Rust_Lib/src/lib.rs) | [教程](14_Rust_Lib/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 15 讲 线程**：[Code](15_Thread/src/main.rs) | [教程](15_Thread/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+
+
 
 ## Reference
 

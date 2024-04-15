@@ -1,5 +1,5 @@
 ---
-title: 5. Trait
+title: 5. Ownership
 tags:
 - Rust
 - basic
