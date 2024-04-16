@@ -36,6 +36,13 @@
 
 **第 15 讲 线程**：[Code](15_Thread/src/main.rs) | [教程](15_Thread/README.md) | 本文作者: [Carp](https://github.com/carpcai)
 
+**第 16 讲 通道**：[Code](16_Channel/src/main.rs) | [教程](16_Channel/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 17 讲 锁**：[Code](17_Lock/src/main.rs) | [教程](17_Lock/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 18 讲 异步编程**：[Code](18_Async/src/main.rs) | [教程](18_Async/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+
+**第 19 讲 IO**：[Code](19_IO/src/main.rs) | [教程](19_IO/README.md) | 本文作者: [Carp](https://github.com/carpcai)
 
 
 
