@@ -45,4 +45,16 @@ fn main() {
     println!("s2: {}", s2);
      */
 
+
+     let string1 = String::from("abcdefghijklmnopqrstuvwxyz");
+     let result;
+     {
+         let string2 = String::from("123456789");
+         result = longest(string1.as_str(), string2.as_str());
+         println!("The longest string is {}", result);
+     }
+
+     // `string2` does not live long enough，borrowed value does not live long enough
+    //  println!("The longest string is {}", result);
+
 }
