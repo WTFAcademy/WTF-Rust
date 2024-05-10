@@ -9,7 +9,7 @@ fn main() {
         let handle = thread::spawn(move || {
             println!("Thread {} is running", i);
             // 模拟一些工作
-            thread::sleep(Duration::from_millis(100));
+            thread::sleep(Duration::from_secs(1));
             println!("Thread {} has finished", i);
         });
         handles.push(handle);
