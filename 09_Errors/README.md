@@ -60,6 +60,8 @@ fn main() {
 
 当你希望从函数中返回错误以便调用者可以决定如何处理时，Rust 允许你使用 `?` 运算符轻松传播错误。
 
+todo syj like if error {return errMsg } else {...}
+
 ### 示例：错误传播
 
 ```rust

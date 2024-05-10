@@ -33,4 +33,16 @@ fn main() {
     };
 
     println!("Book: {} - {} pages", book.title, book.pages);
+
+    /*
+    悬空引用
+    let s2;
+    {
+        let s1 = String::from("hello");
+        // `s1` does not live long enough, borrowed value does not live long enough
+        s2 = &s1;
+    }
+    println!("s2: {}", s2);
+     */
+
 }
