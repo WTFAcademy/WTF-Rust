@@ -23,10 +23,18 @@ tags:
 ```rust
 fn main() {
     let s1 = String::from("hello");  // s1 成为所有者
-    let s2 = s1;                     // 所有权从 s1 转移至 s2
+    let s2 = s1;                     // 所有权从 s1 转移至 s2,s1将变得不可用
 
     // println!("{s1}");             // 错误：s1 不再持有字符串
-    println!("{s2}");
+
+    display(s2);                    //s2 将所有权转让给函数参数s，s2将变得不可用
+
+    // println!("{s2}");             // 错误：s2不可用
+}
+
+
+fn display(s:String){
+   println!("{:?}",s);
 }
 ```
 

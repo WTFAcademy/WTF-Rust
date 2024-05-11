@@ -10,13 +10,14 @@ tags:
 
 ## 1. 定义和使用结构体
 
-首先，让我们谈谈结构体。结构体就像是一种自定义数据类型，用来表示现实世界中的实体，比如人、动物或任何我们想创建的东西。看起来像这样：
+首先，让我们谈谈结构体。结构体就像是一种自定义数据类型，用来表示现实世界中的实体，比如人、动物或任何我们想创建的东西。比如我们要描述一个人，它有着年龄，有着姓名，有着居住地址。如果我们要存储这些东西，就可以用结构体来定义。看起来像这样：
 
 ```rust
 // 定义一个Person结构体
 struct Person {
     name: String,
     age: u32,
+    address:String,
 }
 
 fn main() {
@@ -24,6 +25,7 @@ fn main() {
     let person1 = Person {
         name: String::from("Alice"),
         age: 30,
+        address:String::from("China"),
     };
 
     // 输出这个Person实例的信息
