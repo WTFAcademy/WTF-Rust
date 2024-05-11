@@ -15,7 +15,7 @@ tags:
 
 `Rust` 是一种系统编程语言，由 Mozilla Research 开发，注重安全性、速度和并发性。它旨在帮助开发者构建可靠、高效的软件系统，同时防止常见的安全漏洞，如空指针引用、缓冲区溢出等。
 
-`Rust`的设计理念包括零成本抽象、保证内存安全、无数据竞争的并发以及实用主义。它通过所有权`ownership`、借用`borrowing`和生命周期`lifetimes`等机制，确保内存安全，同时避免了垃圾回收带来的性能开销。
+`Rust`的设计理念包括零成本抽象、保证内存安全、无数据竞争的并发以及实用主义。它通过所有权（ownership）、借用（borrowing）和生命周期（lifetimes）等机制，确保内存安全，同时避免了垃圾回收带来的性能开销。
 
 ## 安装Rust
 
@@ -31,7 +31,9 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 这条命令会下载一个脚本并执行，脚本会自动安装`rustup`和Rust的默认版本（包括`rustc`，Rust的编译器，和`cargo`，Rust的包管理工具）。按照终端里的指示操作，一切设置妥当后，我们就可以进入下一步啦！
 
-如果是`Windows`系统，下载exe文件安装，链接: [rustup-init.exe](https://static.rust-lang.org/rustup/dist/i686-pc-windows-gnu/rustup-init.exe)
+安装完成后，可以通过运行`rustc --version` 命令来检查Rust版本，验证安装是否成功。如果提示找不到`rustc`，则是环境变量问题，可以查看目录`~/.cargo/bin` 是否加到`PATH`里, 可以重启终端或者手动source使环境生效。
+
+如果是`Windows`系统，请参考[官方安装说明](https://forge.rust-lang.org/infra/other-installation-methods.html)
 
 ## Hello Rust程序
 
