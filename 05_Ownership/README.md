@@ -23,16 +23,14 @@ tags:
 
 ```rust
 fn main() {
-    let s1 = String::from("hello");  // s1 成为所有者
-    let s2 = s1;                     // 所有权从 s1 转移至 s2,s1将变得不可用
+    let s1 = String::from("hello");  // s1 是 hello 对象的所有者
 
+    let s2 = s1;                     // 所有权从 s1 转移至 s2,s1将变得不可用
     // println!("{s1}");             // 错误：s1 不再持有字符串
 
     display(s2);                    //s2 将所有权转让给函数参数s，s2将变得不可用
-
     // println!("{s2}");             // 错误：s2不可用
 }
-
 
 fn display(s:String){
    println!("{:?}",s);
@@ -41,9 +39,9 @@ fn display(s:String){
 
 ## 2. 借用
 
-在`Rust`中，借用是一种让多个部分的代码访问同一数据，但不拥有数据的方式。借用分为两种：不可变借用和可变借用。
+在`Rust`中，借用是指通过引用来获得数据的**访问权**，而不是**所有权**，用符号 `&` 表示。借用使得可以在不转移所有权的情况下，让多个部分同时访问相同的数据。借用分为两种：不可变借用和可变借用。
 
-- **不可变借用**：允许多次借用，但借用期间不能修改数据。
+- **不可变借用**：允许多次借用，但借用期间不能修改数据，`Rust` 中默认为不可变借用。
 - **可变借用**：允许数据被修改，但在同一时间内只能有一个可变借用。
 
 ### 示例：不可变借用
@@ -51,7 +49,7 @@ fn display(s:String){
 ```rust
 fn main() {
     let s1 = String::from("hello");
-    let len = calculate_length(&s1); // s1 被不可变借用
+    let len = calculate_length(&s1); // s1 发生不可变借用，函数只能读取但不能修改 s1
 
     println!("The length of '{}' is {}.", s1, len);
 }
@@ -67,34 +65,17 @@ fn calculate_length(s: &String) -> usize {  // s 是对 s1 的引用
 fn main() {
     let mut s = String::from("hello");
 
-    change(&mut s);  // s 被可变借用
+    change(&mut s);  // s 被可变借用，函数可以修改 s
 
     println!("{}", s);
 }
 
-fn change(some_string: &mut String) {
-    some_string.push_str(", world");
+fn change(some_string: &mut String) -> &mut String{
+    some_string.push_str(", wtf!");
+    some_string
 }
 ```
-
-## 3. 生命周期注解
-
-生命周期注解是`Rust`的一种工具，用于指明引用应该持续存在多久。在许多情况下，`Rust`能自动推断出生命周期，但有些复杂情况需要手动标注。
-
-### 示例：生命周期注解
-
-```rust
-fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
-    if x.len() > y.len() {
-        x
-    } else {
-        y
-    }
-}
-```
-
-在上述函数中，生命周期注解 `'a` 指明了参数 `x` 和 `y` 以及返回值存在的最小生命周期。
 
 ## 小结
 
-看完你应该对`Rust`的核心概念：所有权、借用和生命周期有了较深的理解。掌握这些概念对于高效利用`Rust`语言特性至关重要，可以帮你编写出更安全和高效的代码。如果有任何疑问或需要进一步的解释，请随时提出！
+通过如上例子你应该对`Rust`的核心概念：所有权、借用有了基本的理解。掌握这些概念对于高效利用`Rust`语言特性至关重要，可以帮你编写出更安全和高效的代码。如果有任何疑问或需要进一步的解释，请随时提出！
