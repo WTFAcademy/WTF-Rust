@@ -1,14 +1,14 @@
 ---
-title: 常用Rust库介绍
+title: 常用 Rust 库介绍
 tags:
 - Rust
 - libraries
 - wtfacademy
 ---
 
-# WTF Rust 极简入门：常用Rust库介绍
+# WTF Rust 极简入门：常用 Rust 库介绍
 
-Rust生态系统中有许多强大且实用的库，这些库可以帮助开发者提高开发效率，增加项目功能。在本章节中，我们将探讨一些在Rust开发中常用的库，并简要介绍它们的功能和如何在项目中使用它们。
+Rust生态系统中有许多强大且实用的库，这些库可以帮助开发者提高开发效率，增加项目功能。在本章节中，我们将探讨一些在 Rust 开发中常用的库，并简要介绍它们的功能和如何在项目中使用它们。
 
 ## 1. serde
 
@@ -23,7 +23,7 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 ```
 
-在Rust文件中，你可以这样使用它来序列化和反序列化数据：
+在 Rust 文件中，你可以这样使用它来序列化和反序列化数据：
 
 ```rust
 extern crate serde_json;
@@ -56,7 +56,7 @@ fn main() {
 
 ## 2. reqwest
 
-`reqwest` 是一个Rust的HTTP客户端库，用于执行HTTP请求。它提供了异步和阻塞两种调用方式，支持多种HTTP方法和自定义头部，非常适合需要网络功能的应用。
+`reqwest` 是一个 Rust 的 HTTP 客户端库，用于执行 HTTP 请求。它提供了异步和阻塞两种调用方式，支持多种 HTTP 方法和自定义头部，非常适合需要网络功能的应用。
 
 ### 如何使用reqwest
 在`Cargo.toml`中添加：
@@ -67,7 +67,7 @@ reqwest = "0.11"
 tokio = { version = "1", features = ["full"] }
 ```
 
-使用`reqwest`发送GET请求：
+使用`reqwest`发送 GET 请求：
 
 ```rust
 #[tokio::main]
@@ -113,4 +113,4 @@ async fn main() {
 
 ## 总结
 
-本章介绍了一些Rust中常见且功能强大的库，这些库在实际项目中可以极大地帮助开发者提高编码效率和项目质量。Rust的生态系统持续增长，了解并能够熟练使用这些库将为你的Rust编程之路加分。
+本章介绍了一些 Rust 中常见且功能强大的库，这些库在实际项目中可以极大地帮助开发者提高编码效率和项目质量。Rust的生态系统持续增长，了解并能够熟练使用这些库将为你的 Rust 编程之路加分。

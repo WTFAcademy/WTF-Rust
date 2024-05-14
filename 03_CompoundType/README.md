@@ -51,11 +51,11 @@ fn main() {
 
 ```rust
 fn main() {
-    let mut s = String::from("Hello"); // 可变的String类型
+    let mut s = String::from("Hello"); // 可变的 String 类型
     s.push_str(", world!"); // 修改String
     println!("{}", s);
 
-    let slice = &s[0..5]; // 获取部分String作为切片
+    let slice = &s[0..5]; // 获取部分 String 作为切片
     println!("Slice: {}", slice);
 }
 ```
