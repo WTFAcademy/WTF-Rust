@@ -12,17 +12,34 @@ tags:
 
 ## 理解Cargo
 
-Cargo是 Rust 的官方包管理工具，负责多方面的任务：编译代码、下载依赖库、构建软件包等。它还能够确保所有依赖项的版本兼容性，让项目构建更可靠。
+Cargo是 Rust 的官方包管理工具（使用 rustup 安装 Rust 时，会默认安装 Cargo），负责多方面的任务：创建和管理 rust 模块系统、下载并编译依赖库、构建软件包等。它还能够确保所有依赖项的版本兼容性，让项目构建更可靠。可以使用以下命令检查Cargo是否安装以及查看Cargo版本：
 
-###  初始化项目
+```
+cargo --version
+```
+
+### 初始化项目
 
 要开始使用 Cargo 管理 Rust 项目，首先需要创建一个 Cargo 配置文件（`Cargo.toml`）。这个文件描述了项目的基本信息和依赖。使用命令`cargo new <project_name>`能够快速生成一个新的项目目录，里面包含了基本的项目结构和`Cargo.toml`文件。
 
+```
+cargo new project_name
+```
+
+## 运行项目
+
+使用 `cargo new` 创建项目后，可以使用 `cargo run` 命令来编译并运行项目。如果项目已完成编译，Cargo 会直接运行二进制文件。
+
+```
+cd project_name
+cargo run
+```
+
 ## 添加和管理依赖
 
-在`Cargo.toml`文件中，你可以在`[dependencies]`节下添加所需的库依赖。Cargo支持从crates.io（Rust的官方包仓库）、GitHub或本地路径等多种来源获取依赖。
+### 1. 手动添加
 
-### 示例：添加一个依赖
+在`Cargo.toml`文件中，你可以在`[dependencies]`节下添加所需的库依赖。Cargo支持从[crates.io](https://crates.io/)（Rust的官方包仓库）、GitHub或本地路径等多种来源获取依赖。
 
 假设你想要添加一个名为"serde"的序列化库，你可以在`Cargo.toml`的`[dependencies]`节下添加以下代码：
 
@@ -33,9 +50,13 @@ serde = "1.0"
 
 然后运行`cargo build`，Cargo会自动下载并编译 serde 及其依赖。
 
-### 更新依赖
+### 2. 使用cargo add
 
-更新依赖只需修改`Cargo.toml`中的版本号，然后运行`cargo update`，Cargo将解析并更新项目依赖。
+除了以上手动添加的方式外，我们也可以使用 `cargo add 依赖名称` 来快速添加所需要的依赖。
+
+```
+cargo add serde
+```
 
 ## 使用 Cargo 的工作空间
 
