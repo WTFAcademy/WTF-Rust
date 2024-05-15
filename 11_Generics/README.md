@@ -48,6 +48,62 @@ fn main() {
 }
 ```
 
+### 泛型枚举
+
+泛型枚举允许你定义适用于多种类型的枚举。例如：
+
+```rust
+// 定义一个泛型枚举 Option，用于表示一个可能包含值的类型
+enum MyOption<T> {
+    Some(T),
+    None,
+}
+
+fn main() {
+    let some_number = MyOption::Some(42);
+    let no_number: MyOption<i32> = MyOption::None;
+
+    match some_number {
+        MyOption::Some(value) => println!("We have a number: {}", value),
+        MyOption::None => println!("No number found"),
+    }
+}
+
+```
+
+在这个例子中，`MyOption` 枚举是泛型的，接受一个类型参数 `T`，可以表示一个可能包含值的类型。
+
+### 泛型方法
+
+泛型方法允许你在方法中使用泛型类型。例如：
+
+```rust
+
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Point<T> {
+    fn new(x: T, y: T) -> Self {
+        Self { x, y }
+    }
+
+    fn x(&self) -> &T {
+        &self.x
+    }
+}
+
+fn main() {
+    let point = Point::new(5, 10);
+    println!("Point x: {}", point.x());
+}
+
+
+```
+
+在这个例子中，`Point` 结构体和它的 `new` 方法、`x` 方法都是泛型的，接受一个类型参数 `T`。
+
 ## 泛型实例场景
 
 ### 泛型在集合中的应用
