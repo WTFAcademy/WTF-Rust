@@ -22,24 +22,25 @@ fn main() {
 }
 ```
 
-## 数组
+## 动态数组 Vector
 
-数组用于存储多个相同类型的元素，且与元组相同，一旦定义和初始化，就不可更改其长度。下标为0，当你需要处理一组相同类型的数据时，数组就非常有用。
+动态数组 `Vec<T>` 是一种灵活的数据结构，允许在运行时动态改变大小。所以它的长度是可变的，可以根据需要动态增加或减少元素。这为处理不确定数量的数据提供了便利，比如读取未知数量的用户输入或动态生成数据集。
+动态数组采用了范型参数 `T`，意味它可以存储**任意类型**的值，比如我们上节讲到的整数、字符、浮点等，但是一旦确定了具体的类型，数组中的所有元素都具有**同样的类型**。
 
 ### 示例代码
 
 ```rust
 fn main() {
-    let numbers = [1, 2, 3, 4, 5];
+    // 1.显式声明动态数组类型
+    let mut v1: Vec<i32> = Vec::new();
+    v1.push(1);
+    v1.push(2);
+    v1.push(3);
+    println!("vector v1: {:?}", &v1);
 
-    for number in numbers.iter() {
-        println!("{}", number);
-    }
-
-    // 访问指定位置的数据
-    println!("First element: {}", numbers[0]);
-    
-    
+    // 2.使用宏 vec! 来创建数组，支持在创建时就给予初始化值
+    let v2 = vec![1u8, 2, 3];  
+    println!("vector v2: {:?}", &v2);
 }
 ```
 
@@ -51,16 +52,16 @@ fn main() {
 
 ```rust
 fn main() {
-    let mut s = String::from("Hello"); // 可变的String类型
+    let mut s = String::from("Hello"); // 可变的 String 类型
     s.push_str(", world!"); // 修改String
     println!("{}", s);
 
-    let slice = &s[0..5]; // 获取部分String作为切片
+    let slice = &s[0..5]; // 获取部分 String 作为切片
     println!("Slice: {}", slice);
 }
 ```
 
-字符串切片 `&str` 是对存储在某处（通常为`String`类型）的 `UTF-8`编码字符串数据的引用。它们是不可变的。当你想要部分引用`String`中的内容或传递小量数据时，切片特别有用。
+字符串切片 `&str` 是对存储在某处（通常为`String`类型）的 `UTF-8`编码字符串数据的引用，在编译阶段被硬编码到程序二进制文件中，因此它们是不可变的。当你想要部分引用`String`中的内容或传递小量数据时，切片特别有用。
 
 ## 切片
 

@@ -23,8 +23,10 @@ fn main() {
     let c_char = 'z';
     let z_char = 'ℤ';
     let heart_eyed_cat_char = '😻';
+    let z_string = String::from("棒");
     println!("c_char is {}, z_char is {}, heart_eyed_cat_char is {}", c_char, z_char, heart_eyed_cat_char);
     println!("字符'c_char'占用了{}字节的内存大小", std::mem::size_of_val(&c_char));
+    println!("字符串'z_string'内容占用了{}字节的内存大小", &z_string.as_bytes().len());
 
     let tup_var: (i32, f64, u8, char) = (-500, 6.4, 1, 'z');
     let (_w_from_tup, x_from_tup, _y_from_tup, _z_from_tup) = tup_var; // 解构元组
