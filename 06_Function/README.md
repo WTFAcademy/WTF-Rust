@@ -6,6 +6,12 @@ tags:
 - wtfacademy
 ---
 
+推特：[@0xAA_Science](https://twitter.com/0xAA_Science)
+
+社区：[Discord](https://discord.gg/5akcruXrsk)｜[微信群](https://docs.google.com/forms/d/e/1FAIpQLSe4KGT8Sh6sJ7hedQRuIYirOoZK_85miz3dw7vA1-YjodgJ-A/viewform?usp=sf_link)｜[官网 wtf.academy](https://wtf.academy)
+
+所有代码和教程开源在 github: [WTF-Rust](https://github.com/WTFAcademy/WTF-Rust)
+
 # WTF Rust极简入门: 函数
 
 在 Rust 中，函数是执行特定任务的代码单元。函数的使用可以增加代码的可重用性、简化复杂的任务，并有助于对代码进行模块化管理。
@@ -15,7 +21,7 @@ tags:
 要定义一个函数，你需要使用`fn`关键字，后跟函数名、参数列表以及函数体。
 
 ```rust
-fn greet() {
+fn print_hello() {
     println!("Hello, world!");
 }
 ```
@@ -32,7 +38,7 @@ fn print_sum(a: i32, b: i32) {
 
 ## 返回值
 
-函数可以返回值。返回值的类型需要在箭头`->`后指定。在 Rust 中，函数的最后一个表达式会被用作返回值，或者你可以使用`return`关键字明确返回值。
+函数可以返回值。返回值的类型需要在箭头`->`后指定。在Rust中，函数的最后一个表达式会被用作返回值，或者你可以使用`return`关键字明确返回值。请注意不使用分号来结束表达式，否则会变成语句，而不是表达式。
 
 ```rust
 fn add_two(a: i32) -> i32 {
@@ -61,6 +67,10 @@ if number % 4 == 0 {
 } else {
     println!("number is not divisible by 4, 3, or 2");
 }
+
+let condition = true;
+let number = if condition { 5 } else { 6 };
+println!("The value of number is: {}", number);
 ```
 
 ### 循环
@@ -101,6 +111,22 @@ let a = [10, 20, 30, 40, 50];
 
 for element in a.iter() {
     println!("the value is: {}", element);
+}
+```
+
+- **循环控制**
+- `break`：立即退出循环。
+- `continue`：跳过本次循环的剩余部分。
+
+```rust
+for number in 1..10 {
+    if number % 2 == 0 {
+        continue;
+    }
+    println!("Found an odd number: {}", number);
+    if number == 7 {
+        break;
+    }
 }
 ```
 

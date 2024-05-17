@@ -32,6 +32,17 @@ fn main() {
 
     println!("Combined string: {}", s3);
 
+    let s1: &str = "Hello, world!"; // 字符串字面量的类型是 &str
+    let s2: &str = &s1[0..5]; // 使用切片语法创建一个子字符串
+    println!("s1: {}", s1);
+    println!("s2: {}", s2);
+    
+    let s3: String = s1.to_string(); // 将 &str 转换为 String
+    println!("s3: {}", s3);
+    
+    print_str(s1); // 将 &str 传递给函数
+    
+    
 
     let mut scores = HashMap::new();
 
@@ -47,3 +58,6 @@ fn main() {
     }
 }
 
+fn print_str(s: &str) {
+    println!("Inside print_str: {}", s);
+}
