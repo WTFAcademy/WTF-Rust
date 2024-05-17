@@ -6,7 +6,13 @@ tags:
 - wtfacademy
 ---
 
-# WTF Rust 极简入门: 8 集合
+# WTF Rust 极简入门: 集合
+
+推特：[@0xAA_Science](https://twitter.com/0xAA_Science)
+
+社区：[Discord](https://discord.gg/5akcruXrsk)｜[微信群](https://docs.google.com/forms/d/e/1FAIpQLSe4KGT8Sh6sJ7hedQRuIYirOoZK_85miz3dw7vA1-YjodgJ-A/viewform?usp=sf_link)｜[官网 wtf.academy](https://wtf.academy)
+
+所有代码和教程开源在 github: [WTF-Rust](https://github.com/WTFAcademy/WTF-Rust)
 
 本章专注于 Rust 中的集合类型，这些类型是在开发中经常会用到的数据结构。我们将探索 `Vector`、字符串和 `HashMap`，了解它们的使用方法和各自的特点。这些集合类型为存储和访问数据集提供了多种灵活的方式。
 
@@ -47,7 +53,7 @@ for i in &v {
 
 ## 2. 字符串处理
 
-在 Rust 中，`String` 类型被用来存储 UTF-8 编码的文本。字符串的可变性和所有权特性使其操作既灵活又符合 Rust 的安全性要求。
+在Rust中,有两种常见的字符串类型: `String`和`&str`。`String`是一个可增长的、可变的、有所有权的`UTF-8`编码字符串类型,而`&str`是一个指向有效`UTF-8`序列的切片(`slice`)。`&str`通常用于函数参数中,而`String`则用于需要所有权或可变性的场景,如需要修改字符串的情况。
 
 ### 创建和修改字符串
 
@@ -70,6 +76,25 @@ let s2 = " World!";
 let s3 = s1 + s2;  // 注意：s1 在这里被移动了，不能再被使用
 
 println!("Combined string: {}", s3);
+```
+### 字符串与切片
+
+```rust
+fn main() {
+    let s1: &str = "Hello, world!"; // 字符串字面量的类型是 &str
+    let s2: &str = &s1[0..5]; // 使用切片语法创建一个子字符串
+    println!("s1: {}", s1);
+    println!("s2: {}", s2);
+
+    let s3: String = s1.to_string(); // 将 &str 转换为 String
+    println!("s3: {}", s3);
+
+    print_str(s1); // 将 &str 传递给函数
+}
+
+fn print_str(s: &str) {
+    println!("Inside print_str: {}", s);
+}
 ```
 
 ## 3. 哈希Map

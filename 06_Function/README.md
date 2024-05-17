@@ -6,6 +6,12 @@ tags:
 - wtfacademy
 ---
 
+推特：[@0xAA_Science](https://twitter.com/0xAA_Science)
+
+社区：[Discord](https://discord.gg/5akcruXrsk)｜[微信群](https://docs.google.com/forms/d/e/1FAIpQLSe4KGT8Sh6sJ7hedQRuIYirOoZK_85miz3dw7vA1-YjodgJ-A/viewform?usp=sf_link)｜[官网 wtf.academy](https://wtf.academy)
+
+所有代码和教程开源在 github: [WTF-Rust](https://github.com/WTFAcademy/WTF-Rust)
+
 # WTF Rust极简入门: 函数
 
 在 Rust 中，函数是执行特定任务的代码单元。函数的使用可以增加代码的可重用性、简化复杂的任务，并有助于对代码进行模块化管理。
