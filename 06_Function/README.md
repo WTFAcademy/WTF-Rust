@@ -15,7 +15,7 @@ tags:
 要定义一个函数，你需要使用`fn`关键字，后跟函数名、参数列表以及函数体。
 
 ```rust
-fn greet() {
+fn print_hello() {
     println!("Hello, world!");
 }
 ```
@@ -32,7 +32,7 @@ fn print_sum(a: i32, b: i32) {
 
 ## 返回值
 
-函数可以返回值。返回值的类型需要在箭头`->`后指定。在 Rust 中，函数的最后一个表达式会被用作返回值，或者你可以使用`return`关键字明确返回值。
+函数可以返回值。返回值的类型需要在箭头`->`后指定。在Rust中，函数的最后一个表达式会被用作返回值，或者你可以使用`return`关键字明确返回值。请注意不使用分号来结束表达式，否则会变成语句，而不是表达式。
 
 ```rust
 fn add_two(a: i32) -> i32 {
@@ -61,6 +61,10 @@ if number % 4 == 0 {
 } else {
     println!("number is not divisible by 4, 3, or 2");
 }
+
+let condition = true;
+let number = if condition { 5 } else { 6 };
+println!("The value of number is: {}", number);
 ```
 
 ### 循环
@@ -101,6 +105,22 @@ let a = [10, 20, 30, 40, 50];
 
 for element in a.iter() {
     println!("the value is: {}", element);
+}
+```
+
+- **循环控制**
+- `break`：立即退出循环。
+- `continue`：跳过本次循环的剩余部分。
+
+```rust
+for number in 1..10 {
+    if number % 2 == 0 {
+        continue;
+    }
+    println!("Found an odd number: {}", number);
+    if number == 7 {
+        break;
+    }
 }
 ```
 

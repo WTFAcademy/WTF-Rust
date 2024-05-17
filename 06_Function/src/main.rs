@@ -1,4 +1,4 @@
-fn greet() {
+fn print_hello() {
     println!("Hello, world!");
 }
 
@@ -12,7 +12,7 @@ fn add_two(a: i32) -> i32 {
 }
 
 fn main() {
-    greet();
+    print_hello();
     print_sum(11, 22);
     let add_two_result = add_two(33);
     println!("Add two result is {}", add_two_result);
@@ -29,6 +29,9 @@ fn main() {
         println!("number is not divisible by 4, 3, or 2");
     }
 
+    let condition = true;
+    let number = if condition { 5 } else { 6 };
+    println!("The value of number is: {}", number);
 
     loop {
         println!("again!");
@@ -49,5 +52,15 @@ fn main() {
 
     for element in a.iter() {
         println!("the value is: {}", element);
+    }
+
+    for number in 1..10 {
+        if number % 2 == 0 {
+            continue;
+        }
+        println!("Found an odd number: {}", number);
+        if number == 7 {
+            break;
+        }
     }
 }
