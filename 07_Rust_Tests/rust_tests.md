@@ -1,23 +1,12 @@
-# WTF Rust 极简入门: 1. Rust 测试
+---
+title: 7. Test
+tags:
+- Rust
+- basic
+- test
+---
 
-<table>
-  <tr>
-    <th>title</th>
-    <th>tags</th>
-  </tr>
-  <tr>
-    <td>01. 测试</td>
-    <td>
-      <table>
-        <tr>
-          <th>rust</th>
-          <th>basic</th>
-          <td>test</td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
+# WTF Rust 极简入门: Rust 测试
 
 推特：[@0xAA_Science](https://twitter.com/0xAA_Science)
 
@@ -62,8 +51,8 @@ $ rustc --version
 </details>
 
 <details><summary>Tips: Rust 属性</summary>
-Rust 的属性（attribute）是关于 Rust 代码片段的元数据, 它不会改变被它修饰的代码的逻辑,只是对代码进行修饰或标注, 类似于其他编程语言中的注解（annotations）或元数据（metadata）, 包括内部属性  #![Attr] 和外部属性 #[Attr] 。
-根据用途可分为: 条件编译属性, 如 #[cfg] 和  #[cfg_attr] ; 用于 crate 的属性, 如  #![no_std]; 函数和模块的属性, 如 #[test] 用于标记测试函数，自动实现  Debug trait 即打印出调试信息的属性 #[derive(Debug)]; 和配置外部工具的属性 rustfmt 和  clippy。
+Rust 的属性（attribute）是关于 Rust 代码片段的元数据, 它不会改变被它修饰的代码的逻辑,只是对代码进行修饰或标注, 类似于其他编程语言中的注解（annotations）或元数据（metadata）, 包括内部属性  `#![Attr]` 和外部属性 `#[Attr]` 。
+根据用途可分为: 条件编译属性, 如 `#[cfg]` 和  `#[cfg_attr]` ; 用于 crate 的属性, 如  `#![no_std]`; 函数和模块的属性, 如 `#[test]` 用于标记测试函数，自动实现  Debug trait 即打印出调试信息的属性 `#[derive(Debug)]`; 和配置外部工具的属性 rustfmt 和  clippy。
 
 具体更多信息参见[Rust 参考手册](https://rustwiki.org/en/reference/attributes.html)的 Attributes 部分。
 
