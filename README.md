@@ -6,7 +6,7 @@
 
 > 我们最近在学习 Rust，巩固一下细节，也写一个“WTF Rust 极简入门”，供小白们使用（编程大佬可以另找教程）。
 
-**第 1 讲 Hello Rust**：[Code](01_HelloRust/main.rs) | [教程](01_HelloRust/README.md) | 本文作者: [Carp](https://github.com/carpcai)
+**第 1 讲 Hello Rust**：[Code](01_HelloRust/hello_cargo/src/main.rs) | [教程](01_HelloRust/README.md) | 本文作者: [Carp](https://github.com/carpcai)
 
 **第 2 讲 基本类型**：[Code](02_BaseType/src/main.rs) | [教程](02_BaseType/README.md) | 本文作者: [Carp](https://github.com/carpcai)
 
