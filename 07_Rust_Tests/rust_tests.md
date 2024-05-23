@@ -3,7 +3,7 @@ title: 7. Test
 tags:
 - Rust
 - basic
-- test
+- etaacademy
 ---
 
 # WTF Rust 极简入门: Rust 测试
