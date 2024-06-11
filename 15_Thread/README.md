@@ -19,6 +19,26 @@ Rust 的 `std::thread` 模块是标准库中用于并发编程的核心工具，
 
 ```rust
 use std::thread;
+use std::time::Duration;
+
+fn main() {
+    thread::spawn(|| {
+        for i in 1..10 {
+            println!("hi number {} from the spawned thread!", i);
+            thread::sleep(Duration::from_millis(1));
+        }
+    });
+
+    for i in 1..5 {
+        println!("hi number {} from the main thread!", i);
+        thread::sleep(Duration::from_millis(1));
+    }
+}
+```
+在上面的代码中，我们创建了一个打印某些内容的新线程，同时在主线程打印其他内容。但是需要注意的是，这种编写方式，当主线程结束的时候，新线程也会执行结束，不管其是否执行完毕，我们可以使用join来等待所有线程结束。
+
+```rust
+use std::thread;
 
 fn main() {
     let handle = thread::spawn(|| {
@@ -40,7 +60,7 @@ fn main() {
 }
 ```
 
-在这个示例中，我们创建了一个线程，它在一个循环中打印一些信息。同时，主线程也在进行类似的操作。使用`join()`方法来保证子线程完成后主线程才会继续执行，这是避免子线程在程序退出时未完全执行完成的常用方式。
+在这个示例中，我们创建了一个线程，它在一个循环中打印一些信息。同时，主线程也在进行类似的操作。`thread::spawn`的返回值类型是`JoinHandle`，`JoinHandle`是一个拥有所有权的值，对其使用`join()`方法来保证子线程完成后主线程才会继续执行，这是避免子线程在程序退出时未完全执行完成的常用方式。
 
 ### 线程和所有权
 
