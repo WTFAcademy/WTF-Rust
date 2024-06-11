@@ -41,13 +41,40 @@ async fn main() {
 
 ### `Future` 概念
 
-`Future` trait 定义了一个异步操作，这个操作可能还没有完成。完成 `Future` 需要调用其 `poll` 方法，该方法决定是否继续等待或者输出最终结果。
+`Future` trait 定义了一个异步操作，这个操作可能还没有完成。`Future` 可以通过调用 `poll` 函数来推进，该函数决定是否继续等待或者输出最终结果。如果 `Future` 完成了，将返回 `Poll::Ready(result)`。如果 `Future` 还不能完成，将返回 `Poll::Pending` 并安排在 `Future` 准备好做出更多进展时调用 `wake()` 函数。当 `wake()` 被调用时，驱动 `Future` 的执行器将再次调用 `poll`，以便 `Future` 可以取得更多进展。
+
+#### 示例：简化版本的Future
+```rust
+trait SimpleFuture {
+    type Output;
+    fn poll(&mut self, wake: fn()) -> Poll<Self::Output>;
+}
+
+enum Poll<T> {
+    Ready(T),
+    Pending,
+}
+```
+
+#### 示例：普通版本的Future
+
+```rust
+trait Future {
+    type Output;
+    fn poll(
+        // 注意从 &mut self 到 Pin<&mut Self> 的变化：
+        self: Pin<&mut Self>,
+        // 以及从 wake: fn() 到 cx: &mut Context<'_> 的变化：
+        cx: &mut Context<'_>,
+    ) -> Poll<Self::Output>;
+}
+```
 
 ### 异步任务的运行
 
 异步任务是由 `Future` 变体驱动的，通常是通过一个执行器来调度和执行。执行器负责管理 `Future` 的状态并在合适的时候调用 `poll` 方法。
 
-#### 示例：手动实现简单的Future
+#### 示例：手动实现自定义Future
 
 ```rust
 use std::future::Future;
