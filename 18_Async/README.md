@@ -62,9 +62,9 @@ enum Poll<T> {
 trait Future {
     type Output;
     fn poll(
-        // Note the change from `&mut self` to `Pin<&mut Self>`:
+        // 注意从 &mut self 到 Pin<&mut Self> 的变化：
         self: Pin<&mut Self>,
-        // and the change from `wake: fn()` to `cx: &mut Context<'_>`:
+        // 以及从 wake: fn() 到 cx: &mut Context<'_> 的变化：
         cx: &mut Context<'_>,
     ) -> Poll<Self::Output>;
 }
