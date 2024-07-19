@@ -21,17 +21,17 @@ The design concept of Rust` includes zero -cost abstraction, ensuring memory saf
 
 First, we need to install `Rust` on your machine. `Rust` has a great installation tool, called` Rustup`, which will help us manage the version and the corresponding tool chain. Let's install it!
 
-Install the following commands on the following commands
+On `macOS`, `Linux`, or Unix-like operating systems, install using the following command:
 
 Open your terminal (or command line) and enter the following command:
 
-`` `Bash
-Curl -ProTo '= https' --tlsv1.2 --ssf https://sh.rustup.rs | SH
-`` `
+```Bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
 
-This command will download a script and execute. The script will automatically install the default versions of `Rustup` and Rust (including` Rustc`, Rust's compiler, and `Cargo`, Rust's package management tool). According to the instructions in the terminal, after everything is proper, we can enter the next step!
+This command will download a script and execute it. The script will automatically install `rustup` and the default version of Rust (including `rustc`, the Rust compiler, and `cargo`, the Rust package manager). Follow the instructions in the terminal, and once everything is set up, we can proceed to the next step!
 
-After the installation is completed, you can check the RUST version by running the `Rustc -" command to verify whether the installation is successful. If you can't find the `Rustc`, it is an environmental variable problem. You can view the directory` ~/.cargo/bin` whether to add it to the `Path`. You can restart the terminal or manual source to make the environment take effect.
+After installation is complete, you can check the Rust version by running the `rustc --version` command to verify if the installation was successful. If it indicates that `rustc` cannot be found, it is an environment variable issue. Check whether the directory `~/.cargo/bin` has been added to `PATH`. You can restart the terminal or manually source it to apply the environment changes.
 
 If it is the `Windows` system, please refer to [Official Installation Instructions](https://forge.rust-lang.org/infra/other-installation-methods.html)
 
