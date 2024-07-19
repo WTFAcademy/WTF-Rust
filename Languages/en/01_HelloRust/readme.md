@@ -43,28 +43,28 @@ In the journey of programming language, the program is the first step of the tra
 2. In the `Hello_rust` folder, create a new file, named` main.rs`. The file name `.s` suffix represents a RUST source file.
 3. Open the `main.rs`, use your favorite text editor, enter the following code:
 
-`` `rust
+```rust
 fn main () {
  Println! ("Hello, Rust!");
 }
-`` `
+```
 
 To explain briefly, this code defines a function `main`, which is the entrance point of each Rust program. When the Rust program runs, it executes the code in the `main` function. `Println!` is a macro (we talk about macro in the future), used to output text to the terminal.
 
 4. Save the file and return to the terminal to make sure you are in the `Hello_rust` folder, and then enter the following command to compile and run your program:
 
-`` `Bash
+```Bash
 Rustc Main.rs
 ./main
-`` `
+```
 
 If you are a user, the command of the running program may be slightly different, such as entering the `main` directly.
 
 If everything goes well, your terminal will output:
 
-`` `
+```
 Hello, Rust!
-`` `
+```
 
 Congratulations, you have successfully run your first Rust program!
 
@@ -74,9 +74,9 @@ In Rust's world, `Cargo` is your good friend. It is not only a bag management to
 
 1. Open the terminal and enter the following command to create a new RUST project:
 
-`` `Bash
+```Bash
 Cargo new hello_cargo
-`` `
+```
 
 This command will create a new folder called `Hello_cargo`, which contains a preliminary project structure.
 
@@ -84,16 +84,16 @@ This command will create a new folder called `Hello_cargo`, which contains a pre
 
 3. Let's compile and run the project directly to see the magic of `Cargo`! In the terminal of the `hello_cargo` folder, enter the following command:
 
-`` `Bash
+```Bash
 Cargo run
-`` `
+```
 
 `Cargo Run` command will automatically compile your code (if necessary) and run the generated program. You should see the greetings of `Hello, Rust!` In the terminal.
 
 
 4. If you use Rustrover, you can directly run the program directly in the `Cargo` plug -in that comes with your own` Cargo` plug -in to facilitate the rapid verification of the program.
 
-! [img.png] (imgs/img.png)
+![img.png](imgs/img.png)
 
 5. In the demonstration code in the subsequent chapters, I will use `Cargo` to demonstrate, so that everyone will run and test.
 
