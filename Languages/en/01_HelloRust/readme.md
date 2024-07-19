@@ -33,7 +33,7 @@ This command will download a script and execute. The script will automatically i
 
 After the installation is completed, you can check the RUST version by running the `Rustc -" command to verify whether the installation is successful. If you can't find the `Rustc`, it is an environmental variable problem. You can view the directory` ~/.cargo/bin` whether to add it to the `Path`. You can restart the terminal or manual source to make the environment take effect.
 
-If it is the `Windows` system, please refer to [Official Installation Instructions]
+If it is the `Windows` system, please refer to [Official Installation Instructions](https://forge.rust-lang.org/infra/other-installation-methods.html)
 
 ## Hello Rust program
 
