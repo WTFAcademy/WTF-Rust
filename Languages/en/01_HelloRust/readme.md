@@ -9,17 +9,17 @@ tags:
 
 # WTF Rust Minimalist Introduction: 1. Hello Rust
 
-I have recently studied `Rust`, consolidate the details, and also write a` WTF Rust minimalist in the door, for Xiaobai to use (programming big guys can find another tutorial), update 1-3 a week.
+I am recently relearning `Rust` to solidify the details and to write a `WTF Rust Minimalist Introduction` for beginners (advanced programmers can find other tutorials). I will update it 1-3 times per week.
 
-## Rust profile
+## Introduction to Rust
 
-`Rust` is a systemic programming language, developed by Mozilla Research, focusing on safety, speed and concurrency. It aims to help developers build a reliable and efficient software system while preventing common security vulnerabilities, such as empty pointer references, buffer overflow, etc.
+`Rust` is a systems programming language developed by Mozilla Research, focusing on safety, speed, and concurrency. It aims to help developers build reliable, efficient software systems while preventing common security vulnerabilities, such as null pointer dereferences and buffer overflows.
 
-The design concept of Rust` includes zero -cost abstraction, ensuring memory safety, incompetent competition, and pragmatism. It ensures the safety of memory through the mechanisms such as OWNERSHIP, borrowing, and life cycle (Lifetimes), while avoiding the performance expenses brought by garbage recycling.
+The design principles of `Rust` include zero-cost abstractions, guaranteed memory safety, data-race-free concurrency, and pragmatism. Through mechanisms like ownership, borrowing, and lifetimes, it ensures memory safety while avoiding the performance overhead of garbage collection.
 
-## Install rust
+## Installing Rust
 
-First, we need to install `Rust` on your machine. `Rust` has a great installation tool, called` Rustup`, which will help us manage the version and the corresponding tool chain. Let's install it!
+First, we need to install `Rust` on your machine. `Rust` has a fantastic installation tool called `rustup`, which helps us manage `Rust` versions and the corresponding toolchains. Let's install it!
 
 On `macOS`, `Linux`, or Unix-like operating systems, install using the following command:
 
