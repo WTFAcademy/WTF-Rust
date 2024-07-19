@@ -69,3 +69,44 @@ Hello, Rust!
 Congratulations, you have successfully run your first Rust program!
 
 ## Use Cargo
+
+In Rust's world, `Cargo` is your good friend. It is not only a bag management tool, but also helps you build projects, download dependencies, run tests, and so on. Let's take a look at how to use the `Cargo` to create and run a new project.
+
+1. Open the terminal and enter the following command to create a new RUST project:
+
+`` `Bash
+Cargo new hello_cargo
+`` `
+
+This command will create a new folder called `Hello_cargo`, which contains a preliminary project structure.
+
+2. Enter the `Hello_cargo` folder, you will find that there are two main files:` cargo.toml` and `src/main.rs`. `Cargo.toml` is your project configuration file, while` src/main.rs` is your main program file, which has the default `Hello, Rust!` Code.
+
+3. Let's compile and run the project directly to see the magic of `Cargo`! In the terminal of the `hello_cargo` folder, enter the following command:
+
+`` `Bash
+Cargo run
+`` `
+
+`Cargo Run` command will automatically compile your code (if necessary) and run the generated program. You should see the greetings of `Hello, Rust!` In the terminal.
+
+
+4. If you use Rustrover, you can directly run the program directly in the `Cargo` plug -in that comes with your own` Cargo` plug -in to facilitate the rapid verification of the program.
+
+! [img.png] (imgs/img.png)
+
+5. In the demonstration code in the subsequent chapters, I will use `Cargo` to demonstrate, so that everyone will run and test.
+
+that's all! Now, you already know how to install the `Rust`, write and run the` Rust` program, and use the simple item to manage the `Cargo`. This is just the tip of the iceberg. The world of `Rust` is full of possibilities and adventures waiting for you. Are you ready? Let's move forward and go deep into the wonderful journey of `Rust`!
+
+## Summary
+
+This chapter mainly introduces the `Rust` installation method, write the first` Rust` program --`hello Rust`, and introduce how to use `Cargo` for project development
+
+
+
+
+
+
+
+
