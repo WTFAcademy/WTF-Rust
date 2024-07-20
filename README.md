@@ -1,6 +1,6 @@
 # WTF Rust 教程
 
-本教程由 WTF Academy 贡献者们精心打造的 Rust 系列教程。
+本教程是由 WTF Academy 贡献者们精心打造的 Rust 入门教程。
 
 > 我们最近在学习 Rust，巩固一下细节，也写一个“WTF Rust 极简入门”，供小白们使用（编程大佬可以另找教程）。
 
