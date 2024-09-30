@@ -1,5 +1,5 @@
 // 引入所需的库
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::error::Error as StdError;
 
@@ -36,7 +36,7 @@ async fn main() -> Result<(), Box<dyn StdError>> {
     println!("deserialized = {:?}", deserialized);
 
     // 发起网络请求并获取响应
-    let resp = reqwest::get("https://mock.apifox.com/m1/4333142-0-default/user")
+    let resp = reqwest::get("https://apifoxmock.com/m1/4333142-0-default/user")
         .await?
         .text()
         .await?;
@@ -52,20 +52,33 @@ async fn main() -> Result<(), Box<dyn StdError>> {
 
 
     // 假设对方 json 格式未知，则：
-    let url = "https://mock.apifox.com/m1/4333142-0-default/orders"; // 替换为实际的接口URL
+    let url = "https://apifoxmock.com/m1/4333142-0-default/orders"; // 替换为实际的接口URL
     match fetch_and_parse_json(url).await {
-        Ok(json) => {
-            // 这里可以动态地访问和解析JSON数据
-            println!("{:?}", json);
+        Ok(data) => {
+            // 这里可以动态地访问和解析JSON 数据
+            println!("访问 URL 获取的数据: {:?}", data);
 
-            // 例如，检查某个键是否存在并获取对应的值
-            if let Some(data) = json.get("some_key") {
-                println!("Data under 'some_key': {:?}", data);
+            // 假设解析的 JSON 数据是数组
+            if let Some(parsed) = data.as_array() {
+                // 遍历数组并获取其中的字段
+                for item in parsed {
+                    // 例如，检查某个键是否存在并获取对应的值
+                    if let (Some(id), Some(order_number), Some(price)) = (
+                        item.get("id").and_then(|v| v.as_i64()),
+                        item.get("order_number").and_then(|v| v.as_str()),
+                        item.get("price").and_then(|v| v.as_str()),
+                    ) {
+                        println!("id: {}, order_number: {}, price: {}", id, order_number, price);
+                    }
+                }
+            } else {
+                println!("不是一个 JSON 数组");
             }
-        },
+        }
         Err(e) => {
             eprintln!("Error: {}", e);
         }
     }
     Ok(())
 }
+

@@ -1,5 +1,3 @@
-use itertools::Itertools;
-
 fn main() {
     let mixed = ("Rust", 2023, 3.14, true);
     let (lang, year, pi, status) = mixed;
@@ -15,7 +13,7 @@ fn main() {
     println!("vector v1: {:?}", &v1);
 
     // 2.使用宏 vec! 来创建数组，支持在创建时就给予初始化值
-    let v2 = vec![1u8, 2, 3];  
+    let v2 = vec![1u8, 2, 3];
     println!("vector v2: {:?}", &v2);
 
     let mut s = String::from("Hello"); // 可变的String类型
@@ -27,7 +25,6 @@ fn main() {
 
 
     let numbers = [1, 2, 3, 4, 5];
-    // 给数组 numbers 增加数字 6和7
 
     let slice = &numbers[0..2]; // 引用数组的一部分
 

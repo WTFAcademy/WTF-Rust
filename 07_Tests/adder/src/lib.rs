@@ -19,33 +19,37 @@ pub fn add_two(a: i32) -> i32 {
     a + 2
 }
 
-// pub fn greeting(name: &str) -> String {
-//     format!("Hello {}!", name)
-// }
+pub fn greeting_one(name: &str) -> String {
+    format!("Hello {}!", name)
+}
 
-pub fn greeting(name: &str) -> String {
+pub fn greeting_two(name: &str) -> String {
     String::from("Hello!")
 }
 
 
-pub struct Guess {    
+pub struct GuessOne {
     value: i32,
 }
 
-// impl Guess {
-//     pub fn new(value: i32) -> Guess {
-//         if value < 1 {
-//             panic!("Guess value must be between 1 and 100, got {}.", value);
-//         }
+impl GuessOne {
+    pub fn new(value: i32) -> GuessOne {
+        if value < 1 {
+            panic!("Guess value must be between 1 and 100, got {}.", value);
+        }
 
-//         Guess {
-//             value
-//         }
-//     }
-// }
+        GuessOne {
+            value
+        }
+    }
+}
 
-impl Guess {
-    pub fn new(value: i32) -> Guess {
+pub struct GuessTwo {
+    value: i32,
+}
+
+impl GuessTwo {
+    pub fn new(value: i32) -> GuessTwo {
         if value < 1 {
             panic!("Guess value must be greater than or equal to 1, got {}.",
                    value);
@@ -54,7 +58,7 @@ impl Guess {
                    value);
         }
 
-        Guess {
+        GuessTwo {
             value
         }
     }
@@ -109,31 +113,31 @@ mod tests {
         assert_eq!(4, add_two(2));
     }
 
-    // #[test]
-    // fn greeting_contains_name() {
-    //     let result = greeting("Carol");
-    //     assert!(result.contains("Carol"));
-    // }
+    #[test]
+    fn greeting_contains_name_one() {
+        let result = greeting_one("Carol");
+        assert!(result.contains("Carol"));
+    }
 
     #[test]
-    fn greeting_contains_name() {
-        let result = greeting("Carol");
-    assert!(
-        result.contains("Carol"),
-        "Greeting did not contain name, value was `{}`", result
+    fn greeting_contains_name_two() {
+        let result = greeting_two("Carol");
+        assert!(
+            result.contains("Carol"),
+            "Greeting did not contain name, value was `{}`", result
         );
     }
-    
-    // #[test]
-    // #[should_panic]
-    // fn greater_than_100() {
-    //     Guess::new(200);
-    // }
-    
+
+    #[test]
+    #[should_panic]
+    fn greater_than_100_one() {
+        GuessOne::new(200);
+    }
+
     #[test]
     #[should_panic(expected = "Guess value must be less than or equal to 100")]
-    fn greater_than_100() {
-        Guess::new(0);
+    fn greater_than_100_two() {
+        GuessTwo::new(0);
     }
 
     #[test]
@@ -182,12 +186,5 @@ mod tests {
     fn internal() {
         assert_eq!(4, internal_adder(2, 2));
     }
-
 }
-
-
-
-
-
-
 

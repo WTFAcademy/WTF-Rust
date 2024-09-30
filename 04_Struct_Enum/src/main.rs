@@ -1,4 +1,3 @@
-
 // 定义一个Person结构体
 struct Person {
     name: String,

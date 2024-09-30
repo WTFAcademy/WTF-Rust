@@ -7,7 +7,7 @@ fn print_sum(a: i32, b: i32) {
 }
 
 fn add_two(a: i32) -> i32 {
-    return a + 2
+    a + 2
     // 或 `return a + 2;`
 }
 

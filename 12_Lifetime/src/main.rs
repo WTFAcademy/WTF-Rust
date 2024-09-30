@@ -1,4 +1,3 @@
-
 fn borrow<'a>(x: &'a i32, y: &'a i32) -> &'a i32 {
     if x > y { x } else { y }
 }
@@ -46,15 +45,26 @@ fn main() {
      */
 
 
-     let string1 = String::from("abcdefghijklmnopqrstuvwxyz");
-     let result;
-     {
-         let string2 = String::from("123456789");
-         result = longest(string1.as_str(), string2.as_str());
-         println!("The longest string is {}", result);
-     }
+    let string1 = String::from("abcdefghijklmnopqrstuvwxyz");
+    let result1;
+    {
+        let string2 = String::from("123456789");
+        result1 = longest(string1.as_str(), string2.as_str());
+        println!("The longest string is {}", result1);
+    }
 
-     // `string2` does not live long enough，borrowed value does not live long enough
+    // `string2` does not live long enough，borrowed value does not live long enough
     //  println!("The longest string is {}", result);
 
+
+    let string3 = String::from("abcdefghijklmnopqrstuvwxyz");
+    let result2;
+    {
+        let string4 = String::from("123456789");
+        result2 = longest(string4.as_str(), string3.as_str());
+        println!("The longest string is {}", result2);
+    }
+
+    // `string4` does not live long enough，borrowed value does not live long enough
+    // println!("The longest string is {}", result2);
 }

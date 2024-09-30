@@ -7,10 +7,11 @@ fn calculate_length(s: &String) -> usize {
     s.len()
 }
 
-fn change(some_string: &mut String) -> &mut String{
+fn change(some_string: &mut String) -> &mut String {
     some_string.push_str(", wtf!");
     some_string
 }
+
 fn main() {
     let mut s1 = String::from("hello"); // s1 是 hello 对象的所有者
     s1.push_str(", wtf!"); // s1 可以修改 hello 对象，追加字符串

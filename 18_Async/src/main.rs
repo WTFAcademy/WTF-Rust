@@ -3,10 +3,10 @@ use std::pin::Pin;
 use std::task::{Context, Poll};
 
 struct SimpleFuture;
-impl Future for SimpleFuture{
+impl Future for SimpleFuture {
     type Output = String;
 
-    fn poll(self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Self::Output> {
+    fn poll(self: Pin<&mut Self>, _cx: &mut Context<'_>) -> Poll<Self::Output> {
         Poll::Ready("completed".to_string())
     }
 }

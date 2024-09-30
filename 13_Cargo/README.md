@@ -1,18 +1,20 @@
 ---
 title: Cargo
 tags:
-- Rust
-- basic
-- wtfacademy
+  - Rust
+  - basic
+  - wtfacademy
 ---
 
 # WTF Rust 极简入门: Cargo 管理
 
-在本章中，我们将讨论如何使用 Rust 的包管理工具 Cargo 来管理项目依赖。我们将首先探讨 Cargo 的基本功能，然后深入研究如何添加、更新和管理外部库依赖项。最后，我们会介绍一些 Cargo 的高级功能，如如何使用工作空间管理多个包。
+在本章中，我们将讨论如何使用 Rust 的包管理工具 Cargo 来管理项目依赖。我们将首先探讨 Cargo
+的基本功能，然后深入研究如何添加、更新和管理外部库依赖项。最后，我们会介绍一些 Cargo 的高级功能，如如何使用工作空间管理多个包。
 
 ## 理解Cargo
 
-Cargo是 Rust 的官方包管理工具（使用 rustup 安装 Rust 时，会默认安装 Cargo），负责多方面的任务：创建和管理 rust 模块系统、下载并编译依赖库、构建软件包等。它还能够确保所有依赖项的版本兼容性，让项目构建更可靠。可以使用以下命令检查Cargo是否安装以及查看Cargo版本：
+Cargo是 Rust 的官方包管理工具（使用 rustup 安装 Rust 时，会默认安装 Cargo），负责多方面的任务：创建和管理 rust
+模块系统、下载并编译依赖库、构建软件包等。它还能够确保所有依赖项的版本兼容性，让项目构建更可靠。可以使用以下命令检查Cargo是否安装以及查看Cargo版本：
 
 ```
 cargo --version
@@ -20,7 +22,8 @@ cargo --version
 
 ### 初始化项目
 
-要开始使用 Cargo 管理 Rust 项目，首先需要创建一个 Cargo 配置文件（`Cargo.toml`）。这个文件描述了项目的基本信息和依赖。使用命令`cargo new <project_name>`能够快速生成一个新的项目目录，里面包含了基本的项目结构和`Cargo.toml`文件。
+要开始使用 Cargo 管理 Rust 项目，首先需要创建一个 Cargo 配置文件（`Cargo.toml`）。这个文件描述了项目的基本信息和依赖。使用命令
+`cargo new <project_name>`能够快速生成一个新的项目目录，里面包含了基本的项目结构和`Cargo.toml`文件。
 
 ```
 cargo new project_name
@@ -39,7 +42,8 @@ cargo run
 
 ### 1. 手动添加
 
-在`Cargo.toml`文件中，你可以在`[dependencies]`节下添加所需的库依赖。Cargo支持从[crates.io](https://crates.io/)（Rust的官方包仓库）、GitHub或本地路径等多种来源获取依赖。
+在`Cargo.toml`文件中，你可以在`[dependencies]`节下添加所需的库依赖。Cargo支持从[crates.io](https://crates.io/)
+（Rust的官方包仓库）、GitHub或本地路径等多种来源获取依赖。
 
 假设你想要添加一个名为"serde"的序列化库，你可以在`Cargo.toml`的`[dependencies]`节下添加以下代码：
 
@@ -60,7 +64,8 @@ cargo add serde
 
 ## 使用 Cargo 的工作空间
 
-对于包含多个包的大型项目，使用 Cargo 的工作空间功能能够高效管理依赖与构建。工作空间由一个顶层的`Cargo.toml`配置文件定义，它链接到多个子项目。
+对于包含多个包的大型项目，使用 Cargo 的工作空间功能能够高效管理依赖与构建。工作空间由一个顶层的`Cargo.toml`
+配置文件定义，它链接到多个子项目。
 
 ### 创建工作空间
 
@@ -74,7 +79,7 @@ members = [
 ]
 ```
 
-每个成员目录都有自己的`Cargo.toml`文件和源代码。这样设置后，Car工作空间中的所有包能共享依赖，提高编译效率。
+每个成员目录都有自己的`Cargo.toml`文件和源代码。这样设置后，Cargo工作空间中的所有包能共享依赖，提高编译效率。
 
 ## 高级功能
 

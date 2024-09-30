@@ -3,7 +3,7 @@ trait Describable {
     fn describe(&self) -> String;
 
     // 默认实现的方法，可以被实现该 trait 的类型覆盖
-    fn default_descriptiton(&self) -> String {
+    fn default_description(&self) -> String {
         String::from("This is default functions")
     }
 }
@@ -62,7 +62,7 @@ fn main() {
     println!("{}", alice.describe());
 
     // 调用 default_description 方法
-    println!("{}", alice.default_descriptiton());
+    println!("{}", alice.default_description());
 
     // 使用 output_description 函数
     output_description(&alice);

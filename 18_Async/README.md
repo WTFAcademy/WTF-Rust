@@ -12,7 +12,8 @@ tags:
 
 ## 异步编程基础
 
-异步编程是处理并发编程的一种高效方式，特别适合 I/O 密集型或需要高响应速度的应用。在 Rust 中，异步编程主要依赖于 `async` 关键字标记的异步函数和 `await` 表达式。
+异步编程是处理并发编程的一种高效方式，特别适合 I/O 密集型或需要高响应速度的应用。在 Rust 中，异步编程主要依赖于 `async`
+关键字标记的异步函数和 `await` 表达式。
 
 ### 异步函数与 `async/await`
 
@@ -41,9 +42,13 @@ async fn main() {
 
 ### `Future` 概念
 
-`Future` trait 定义了一个异步操作，这个操作可能还没有完成。`Future` 可以通过调用 `poll` 函数来推进，该函数决定是否继续等待或者输出最终结果。如果 `Future` 完成了，将返回 `Poll::Ready(result)`。如果 `Future` 还不能完成，将返回 `Poll::Pending` 并安排在 `Future` 准备好做出更多进展时调用 `wake()` 函数。当 `wake()` 被调用时，驱动 `Future` 的执行器将再次调用 `poll`，以便 `Future` 可以取得更多进展。
+`Future` trait 定义了一个异步操作，这个操作可能还没有完成。`Future` 可以通过调用 `poll` 函数来推进，该函数决定是否继续等待或者输出最终结果。如果
+`Future` 完成了，将返回 `Poll::Ready(result)`。如果 `Future` 还不能完成，将返回 `Poll::Pending` 并安排在 `Future`
+准备好做出更多进展时调用 `wake()` 函数。当 `wake()` 被调用时，驱动 `Future` 的执行器将再次调用 `poll`，以便 `Future`
+可以取得更多进展。
 
 #### 示例：简化版本的Future
+
 ```rust
 trait SimpleFuture {
     type Output;
@@ -64,15 +69,16 @@ trait Future {
     fn poll(
         // 注意从 &mut self 到 Pin<&mut Self> 的变化：
         self: Pin<&mut Self>,
-        // 以及从 wake: fn() 到 cx: &mut Context<'_> 的变化：
-        cx: &mut Context<'_>,
+        // 以及从 wake: fn() 到 _cx: &mut Context<'_> 的变化：
+        _cx: &mut Context<'_>,
     ) -> Poll<Self::Output>;
 }
 ```
 
 ### 异步任务的运行
 
-异步任务是由 `Future` 变体驱动的，通常是通过一个执行器来调度和执行。执行器负责管理 `Future` 的状态并在合适的时候调用 `poll` 方法。
+异步任务是由 `Future` 变体驱动的，通常是通过一个执行器来调度和执行。执行器负责管理 `Future` 的状态并在合适的时候调用
+`poll` 方法。
 
 #### 示例：手动实现自定义Future
 
@@ -98,6 +104,8 @@ async fn main() {
 }
 ```
 
-在这个例子中，`SimpleFuture` 是一个自定义的 `Future`，它立即返回一个结果，没有延时或等待。通过使用 `await`，我们可以在异步函数中等待这个 `Future` 完成。
+在这个例子中，`SimpleFuture` 是一个自定义的 `Future`，它立即返回一个结果，没有延时或等待。通过使用 `await`，我们可以在异步函数中等待这个
+`Future` 完成。
 
-通过对这些基础和核心概念的理解，你可以开始构建更复杂的异步应用程序，这些程序能够有效地执行多个操作，而不会互相阻塞。在未来的节中，我们将探讨如何结合多个 `Future` 并发处理复杂的异步逻辑。
+通过对这些基础和核心概念的理解，你可以开始构建更复杂的异步应用程序，这些程序能够有效地执行多个操作，而不会互相阻塞。在未来的节中，我们将探讨如何结合多个
+`Future` 并发处理复杂的异步逻辑。

@@ -55,6 +55,5 @@ fn main() {
     }
 
     panic!("This is a critical error!");
-
 }
 
